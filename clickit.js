@@ -1,4 +1,7 @@
 const container = document.querySelector('.container')
+const buttons = container.querySelector('.buttons')
+const span = buttons.querySelector('span')
+const br = buttons.querySelector('br')
 const h1 = document.querySelector('h1')
 const total = document.querySelector('#clicked')
 const red = document.querySelector('#red_clicked')
@@ -21,8 +24,7 @@ start.style.width = '150px'
 start.style.height = '30px'
 start.style.backgroundColor = 'darkblue'
 start.style.color = 'white'
-container.appendChild(start)
-container.write('<br>')
+container.insertBefore(start, span)
 
 start.addEventListener('click', () => {
   const quit = document.createElement('button')
@@ -31,8 +33,8 @@ start.addEventListener('click', () => {
   quit.style.width = '125px'
   quit.style.height = '30px'
   quit.style.borderColor = 'black'
-  container.write('&nbsp;&nbsp;&nbsp;')
-  container.appendChild(quit)
+  container.write('<br>')
+  container.appendChild(quit, br)
   let timeout = parseFloat(document.querySelector('#timeout').value)*1000
 
   const kill = (x, y) => {

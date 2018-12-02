@@ -24,7 +24,7 @@ start.style.width = '150px'
 start.style.height = '30px'
 start.style.backgroundColor = 'darkblue'
 start.style.color = 'white'
-container.insertBefore(start, span)
+buttons.insertBefore(start, span)
 
 start.addEventListener('click', () => {
   const quit = document.createElement('button')
@@ -33,7 +33,7 @@ start.addEventListener('click', () => {
   quit.style.width = '125px'
   quit.style.height = '30px'
   quit.style.borderColor = 'black'
-  container.appendChild(quit, br)
+  buttons.insertBefore(quit, br)
   let timeout = parseFloat(document.querySelector('#timeout').value)*1000
 
   const kill = (x, y) => {

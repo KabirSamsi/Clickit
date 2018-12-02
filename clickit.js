@@ -81,18 +81,19 @@ start.addEventListener('click', () => {
   })
 
   start.addEventListener('click', () => {
-    clearInterval(changing)
-    changed = 1
-    const score = document.createElement('strong')
-    if (new_total === 0) {
-      score.innerHTML = `<br><br>Score: 0/0 (0%)`
+    if (start.innerHTML === 'Quit Game') {
+      clearInterval(changing)
+      changed = 1
+      const score = document.createElement('strong')
+      if (new_total === 0) {
+        score.innerHTML = `<br><br>Score: 0/0 (0%)`
 
-    } else {
-      score.innerHTML = `<br><br>Score: ${new_red} / ${new_total} (${(new_red/new_total)*100}%)`
+      } else {
+        score.innerHTML = `<br><br>Score: ${new_red} / ${new_total} (${(new_red/new_total)*100}%)`
 
+      }
+
+      container.appendChild(score)
     }
-
-    container.appendChild(score)
-
   })
 })

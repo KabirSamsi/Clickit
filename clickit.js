@@ -23,8 +23,10 @@ start.addEventListener('click', () => {
   button.style.backgroundColor = 'turquoise'
   button.style.width = '125px'
   button.style.height = '30px'
+  button.style.borderColor = 'black'
+  button.style.borderWidth = '3px'
   button.previousElementSibling = start
-  container.insertBefore(button, start)
+  container.insertBefore(start, button)
   let timeout = parseFloat(document.querySelector('#timeout').value)*1000
 
   const kill = (x, y) => {

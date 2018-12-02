@@ -3,7 +3,6 @@ const container = document.querySelector('.container')
 const buttons = container.querySelector('.buttons')
 const scores = document.querySelector('.scores')
 const span = buttons.querySelector('span')
-const br = buttons.querySelector('br')
 const h1 = document.querySelector('h1')
 const total = document.querySelector('#clicked')
 const red = document.querySelector('#red_clicked')
@@ -38,6 +37,7 @@ buttons.insertBefore(start, span)
 start.addEventListener('click', () => {
   //Creates quit button
   const quit = document.createElement('button')
+  const br = document.createElement('br')
   quit.innerHTML = 'Quit Game'
   quit.style.backgroundColor = 'turquoise'
   quit.style.width = '125px'
@@ -125,6 +125,6 @@ start.addEventListener('click', () => {
 
     }
     scores.appendChild(score)
-    
+
   })
 })

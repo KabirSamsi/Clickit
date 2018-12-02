@@ -14,10 +14,10 @@ let new_total = 0
 let new_red = 0
 let new_grey = 0
 let changed = 0
-let timeout = parseFloat(prompt('Set a time interval (In seconds)'))*1000
 let color;
 
 start.addEventListener('click', () => {
+  let timeout = parseFloat(document.querySelector('#timeout')))*1000
 
   const kill = (x, y) => {
     ctx.fillStyle = 'grey'

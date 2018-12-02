@@ -38,6 +38,7 @@ start.addEventListener('click', () => {
   //Creates quit button
   const quit = document.createElement('button')
   const br = document.createElement('br')
+  buttons.appendChild(br)
   quit.innerHTML = 'Quit Game'
   quit.style.backgroundColor = 'turquoise'
   quit.style.width = '125px'

@@ -101,7 +101,5 @@ start.addEventListener('click', () => {
 
     container.appendChild(score)
 
-    }
-
   })
 })

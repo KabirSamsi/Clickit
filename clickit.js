@@ -1,5 +1,6 @@
 //Message to viewers
-let help = readline('Hi there. I\'ve made a few changes to this game since you\'ve last seen it, so let me walk you through it. Type \'help\' to learn all of the new things this can do.')
+console.logreadline('Hi there. I\'ve made a few changes to this game since you\'ve last seen it, so let me walk you through it. Type \'help\' to learn all of the new things this can do.')
+let help = readline()
 console.log(help)
 
 // DOM elements

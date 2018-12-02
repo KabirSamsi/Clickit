@@ -13,7 +13,7 @@ let randomY;
 let new_total = 0
 let new_red = 0
 let new_grey = 0
-let timeout = parseInt(prompt('Set a time interval (In seconds - 1 second minimum)'))*1000
+let timeout = parseFloat(prompt('Set a time interval (In seconds)'))*1000
 let color;
 
 const kill = (x, y) => {

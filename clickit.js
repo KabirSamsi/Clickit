@@ -1,3 +1,6 @@
+//Message to viewers
+console.log('Hi there. I\'ve made a few changes to this game since you\'ve last seen it, so let me walk you through it. Type \'help\' to learn all of the new things this can do.')
+
 // DOM elements
 const container = document.querySelector('.container')
 const buttons = container.querySelector('.buttons')

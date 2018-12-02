@@ -18,7 +18,7 @@ let color;
 
 start.addEventListener('click', () => {
   start.innerHTML = 'Quit Game'
-  let timeout = parseFloat(document.querySelector('#timeout'))*1000
+  let timeout = parseFloat(document.querySelector('#timeout').value)*1000
 
   const kill = (x, y) => {
     ctx.fillStyle = 'grey'

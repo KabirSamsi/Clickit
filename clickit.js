@@ -22,6 +22,7 @@ start.style.height = '30px'
 start.style.backgroundColor = 'darkblue'
 start.style.color = 'white'
 container.appendChild(start)
+container.write('<br>')
 
 start.addEventListener('click', () => {
   const quit = document.createElement('button')

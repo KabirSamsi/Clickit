@@ -1,5 +1,5 @@
 const container = document.querySelector('.container')
-const quit = document.querySelector('#quit')
+const start = document.querySelector('#start')
 const h1 = document.querySelector('h1')
 const total = document.querySelector('#clicked')
 const red = document.querySelector('#red_clicked')
@@ -17,78 +17,81 @@ let changed = 0
 let timeout = parseFloat(prompt('Set a time interval (In seconds)'))*1000
 let color;
 
-const kill = (x, y) => {
-  ctx.fillStyle = 'grey'
-  ctx.fillRect(x, y, 30, 30)
-}
+start.addEventListener('click', () => {
 
-const generate_random_coordinates = () => {
-  randomX = Math.round((Math.random()*width)/32)*32
-  randomY = Math.round((Math.random()*(height-170))/32)*32
-  ctx.fillStyle = 'red'
-  ctx.fillRect(randomX, randomY, 30, 30)
-  kill_it = window.setInterval(kill, timeout, randomX, randomY)
-
-}
-
-class Tile {
-  constructor(x, y, color, number) {
-    this.x = x;
-    this.y = y;
-    this.color = color;
+  const kill = (x, y) => {
+    ctx.fillStyle = 'grey'
+    ctx.fillRect(x, y, 30, 30)
   }
 
-  create() {
-    ctx.fillStyle = this.color
-    ctx.fillRect(this.x, this.y, 30, 30)
+  const generate_random_coordinates = () => {
+    randomX = Math.round((Math.random()*width)/32)*32
+    randomY = Math.round((Math.random()*(height-170))/32)*32
+    ctx.fillStyle = 'red'
+    ctx.fillRect(randomX, randomY, 30, 30)
+    kill_it = window.setInterval(kill, timeout, randomX, randomY)
+
   }
 
-}
+  class Tile {
+    constructor(x, y, color, number) {
+      this.x = x;
+      this.y = y;
+      this.color = color;
+    }
 
-squares = []
+    create() {
+      ctx.fillStyle = this.color
+      ctx.fillRect(this.x, this.y, 30, 30)
+    }
 
-for (let y = 0; y < height-170; y += 32) {
-  for (let i = 0; i < width; i += 32) {
-    let square = new Tile(i, y, 'grey')
-    square.create()
-    squares.push([square])
   }
-}
 
-changing = window.setInterval(generate_random_coordinates, timeout)
+  squares = []
 
-canvas.addEventListener('click', e => {
-  if (changed === 0) {
-    new_total += 1
-    total.innerHTML = `Total Squares Clicked: ${new_total}`
-    for (let squareset of squares) {
-      if (((Math.round(e.pageX/32)*32) == randomX || ((Math.round(e.pageX/32)*32)-32 == randomX) || ((Math.round(e.pageX/32)*32)+32 == randomX))) {
-      new_red += 1
-      red.innerHTML = `Red Squares Clicked: ${new_red}`
-      break;
-
-
-      } else {
-        new_grey += 1
-        grey.innerHTML = `Grey Squares Clicked: ${new_grey}`
-        break;
-      }
+  for (let y = 0; y < height-170; y += 32) {
+    for (let i = 0; i < width; i += 32) {
+      let square = new Tile(i, y, 'grey')
+      square.create()
+      squares.push([square])
     }
   }
-})
 
-quit.addEventListener('click', () => {
-  clearInterval(changing)
-  changed = 1
-  const score = document.createElement('strong')
-  if (new_total === 0) {
-      score.innerHTML = `<br><br>Score: 0/0 (0%)`
+  changing = window.setInterval(generate_random_coordinates, timeout)
 
-  } else {
-  score.innerHTML = `<br><br>Score: ${new_red} / ${new_total} (${(new_red/new_total)*100}%)`
+  canvas.addEventListener('click', e => {
+    if (changed === 0) {
+      new_total += 1
+      total.innerHTML = `Total Squares Clicked: ${new_total}`
+      for (let squareset of squares) {
+        if (((Math.round(e.pageX/32)*32) == randomX || ((Math.round(e.pageX/32)*32)-32 == randomX) || ((Math.round(e.pageX/32)*32)+32 == randomX))) {
+        new_red += 1
+        red.innerHTML = `Red Squares Clicked: ${new_red}`
+        break;
 
-  }
 
-  container.appendChild(score)
+        } else {
+          new_grey += 1
+          grey.innerHTML = `Grey Squares Clicked: ${new_grey}`
+          break;
+        }
+      }
+    }
+  })
 
+  start.addEventListener('click', () => {
+    clearInterval(changing)
+    changed = 1
+    const score = document.createElement('strong')
+    if (new_total === 0) {
+        score.innerHTML = `<br><br>Score: 0/0 (0%)`
+
+    } else {
+    score.innerHTML = `<br><br>Score: ${new_red} / ${new_total} (${(new_red/new_total)*100}%)`
+
+    }
+
+    container.appendChild(score)
+
+  })
 })

@@ -31,7 +31,7 @@ start.addEventListener('click', () => {
   quit.style.width = '125px'
   quit.style.height = '30px'
   quit.style.borderColor = 'black'
-  quit.style.borderWidth = '3px'
+  container.write('&nbsp;&nbsp;&nbsp;')
   container.appendChild(quit)
   let timeout = parseFloat(document.querySelector('#timeout').value)*1000
 

@@ -32,13 +32,15 @@ start.style.height = '30px'
 start.style.backgroundColor = 'darkblue'
 start.style.color = 'white'
 buttons.insertBefore(start, span)
+const br2 = document.createElement('br')
+buttons.appendChild(br)
+buttons.appendChild(br2)
 
 //Game begins on start click
 start.addEventListener('click', () => {
   //Creates quit button
   const quit = document.createElement('button')
   const br = document.createElement('br')
-  buttons.appendChild(br)
   quit.innerHTML = 'Quit Game'
   quit.style.backgroundColor = 'turquoise'
   quit.style.width = '125px'

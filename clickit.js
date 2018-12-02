@@ -17,6 +17,7 @@ let changed = 0
 let color;
 
 start.addEventListener('click', () => {
+  start.innerHTML = 'Quit Game'
   let timeout = parseFloat(document.querySelector('#timeout')))*1000
 
   const kill = (x, y) => {

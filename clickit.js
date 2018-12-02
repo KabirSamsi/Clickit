@@ -77,6 +77,9 @@ canvas.addEventListener('click', e => {
 quit.addEventListener('click', () => {
   clearInterval(changing)
   const score = document.createElement('strong')
+  if (new_total === 0) {
+      score.innerHTML = `<br><br>Score: 0/0 (0%)`
+  }
   score.innerHTML = `<br><br>Score: ${new_red} / ${new_total} (${(new_red/new_total)*100}%)`
   container.appendChild(score)
 })

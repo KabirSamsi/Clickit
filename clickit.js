@@ -1,5 +1,4 @@
 const container = document.querySelector('.container')
-const start = document.querySelector('#start')
 const h1 = document.querySelector('h1')
 const total = document.querySelector('#clicked')
 const red = document.querySelector('#red_clicked')
@@ -16,17 +15,22 @@ let new_grey = 0
 let changed = 0
 let color;
 
+const start = document.createElement('button')
+start.style.width = '150px'
+start.style.height = '30px'
+start.style.backgroundColor = 'darkblue'
+start.style.color = 'white'
+container.appendChild(start)
+
 start.addEventListener('click', () => {
-  const button = document.createElement('button')
-  button.className = 'quit'
-  button.innerHTML = 'Quit Game'
-  button.style.backgroundColor = 'turquoise'
-  button.style.width = '125px'
-  button.style.height = '30px'
-  button.style.borderColor = 'black'
-  button.style.borderWidth = '3px'
-  button.previousElementSibling = start
-  container.insertBefore(start, button)
+  const quit = document.createElement('button')
+  quit.innerHTML = 'Quit Game'
+  quit.style.backgroundColor = 'turquoise'
+  quit.style.width = '125px'
+  quit.style.height = '30px'
+  quit.style.borderColor = 'black'
+  quit.style.borderWidth = '3px'
+  container.appendChild('quit')
   let timeout = parseFloat(document.querySelector('#timeout').value)*1000
 
   const kill = (x, y) => {
@@ -89,7 +93,7 @@ start.addEventListener('click', () => {
     }
   })
 
-  button.addEventListener('click', () => {
+  quit.addEventListener('click', () => {
     clearInterval(changing)
     changed = 1
     const score = document.createElement('strong')

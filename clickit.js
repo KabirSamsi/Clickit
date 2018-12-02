@@ -1,5 +1,6 @@
 const container = document.querySelector('.container')
 const buttons = container.querySelector('.buttons')
+const scores = document.querySelector('.scores')
 const span = buttons.querySelector('span')
 const br = buttons.querySelector('br')
 const h1 = document.querySelector('h1')
@@ -108,7 +109,7 @@ start.addEventListener('click', () => {
 
     }
 
-    container.appendChild(score)
+    scores.appendChild(score)
 
   })
 })

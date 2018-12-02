@@ -13,6 +13,7 @@ let randomY;
 let new_total = 0
 let new_red = 0
 let new_grey = 0
+let changed = 0
 let timeout = parseFloat(prompt('Set a time interval (In seconds)'))*1000
 let color;
 
@@ -57,25 +58,28 @@ for (let y = 0; y < height-170; y += 32) {
 changing = window.setInterval(generate_random_coordinates, timeout)
 
 canvas.addEventListener('click', e => {
-  new_total += 1
-  total.innerHTML = `Total Squares Clicked: ${new_total}`
-  for (let squareset of squares) {
-    if (((Math.round(e.pageX/32)*32) == randomX || ((Math.round(e.pageX/32)*32)-32 == randomX) || ((Math.round(e.pageX/32)*32)+32 == randomX))) {
-    new_red += 1
-    red.innerHTML = `Red Squares Clicked: ${new_red}`
-    break;
-
-
-    } else {
-      new_grey += 1
-      grey.innerHTML = `Grey Squares Clicked: ${new_grey}`
+  if (changed === 0) {
+    new_total += 1
+    total.innerHTML = `Total Squares Clicked: ${new_total}`
+    for (let squareset of squares) {
+      if (((Math.round(e.pageX/32)*32) == randomX || ((Math.round(e.pageX/32)*32)-32 == randomX) || ((Math.round(e.pageX/32)*32)+32 == randomX))) {
+      new_red += 1
+      red.innerHTML = `Red Squares Clicked: ${new_red}`
       break;
+
+
+      } else {
+        new_grey += 1
+        grey.innerHTML = `Grey Squares Clicked: ${new_grey}`
+        break;
+      }
     }
   }
 })
 
 quit.addEventListener('click', () => {
   clearInterval(changing)
+  changed = 1
   const score = document.createElement('strong')
   if (new_total === 0) {
       score.innerHTML = `<br><br>Score: 0/0 (0%)`

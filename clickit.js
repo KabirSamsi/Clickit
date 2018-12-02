@@ -17,8 +17,14 @@ let changed = 0
 let color;
 
 start.addEventListener('click', () => {
-  start.innerHTML = 'Quit Game'
-  start.className = 'quit'
+  const button = document.createElement('button')
+  button.className = 'quit'
+  button.innerHTML = 'Quit Game'
+  button.style.backgroundColor = 'turquoise'
+  button.style.width = '125px'
+  button.style.height = '30px'
+  button.previousElementSibling = start
+  container.insertBefore(button, start)
   let timeout = parseFloat(document.querySelector('#timeout').value)*1000
 
   const kill = (x, y) => {
@@ -81,20 +87,21 @@ start.addEventListener('click', () => {
     }
   })
 
-  quit[0].addEventListener('click', () => {
-    if (start.innerHTML === 'Quit Game') {
-      clearInterval(changing)
-      changed = 1
-      const score = document.createElement('strong')
-      if (new_total === 0) {
-        score.innerHTML = `<br><br>Score: 0/0 (0%)`
+  button.addEventListener('click', () => {
+    clearInterval(changing)
+    changed = 1
+    const score = document.createElement('strong')
+    if (new_total === 0) {
+      score.innerHTML = `<br><br>Score: 0/0 (0%)`
 
-      } else {
-        score.innerHTML = `<br><br>Score: ${new_red} / ${new_total} (${(new_red/new_total)*100}%)`
+    } else {
+      score.innerHTML = `<br><br>Score: ${new_red} / ${new_total} (${(new_red/new_total)*100}%)`
 
-      }
-
-      container.appendChild(score)
     }
+
+    container.appendChild(score)
+
+    }
+
   })
 })

@@ -16,6 +16,7 @@ let changed = 0
 let color;
 
 const start = document.createElement('button')
+start.innerHTML = 'Start Game'
 start.style.width = '150px'
 start.style.height = '30px'
 start.style.backgroundColor = 'darkblue'
@@ -30,7 +31,7 @@ start.addEventListener('click', () => {
   quit.style.height = '30px'
   quit.style.borderColor = 'black'
   quit.style.borderWidth = '3px'
-  container.appendChild('quit')
+  container.appendChild(quit)
   let timeout = parseFloat(document.querySelector('#timeout').value)*1000
 
   const kill = (x, y) => {

@@ -8,11 +8,12 @@
   <body>
     <div class='container '>
       <h1>Clickit!</h1>
-      <p>Click the red square!</p><br />
+      <p><em>Click the red square!</em></p><br />
+      <input type='text'id='timeout'placeholder='Set a time interval (In seconds)' /><br /><br />
+      <button id='start'>Start Game</button><br /><br />
       <strong id='clicked'>Total Squares Clicked: 0</strong>
       <strong id='red_clicked'>Red Squares Clicked: 0</strong>
-      <strong id='grey_clicked'>Grey Squares Clicked: 0</strong><br /><br />
-      <button id='quit'>Quit Game</button>
+      <strong id='grey_clicked'>Grey Squares Clicked: 0</strong>
     </div>
     <br /><br />
     <canvas id='canvas'></canvas>

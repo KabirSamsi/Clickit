@@ -1,17 +1,17 @@
 // DOM elements
-const container = document.querySelector('.container')
-const buttons = container.querySelector('.buttons')
-const scores = document.querySelector('.scores')
-const span = buttons.querySelector('span')
-const h1 = document.querySelector('h1')
-const total = document.querySelector('#clicked')
-const red = document.querySelector('#red_clicked')
-const grey = document.querySelector('#grey_clicked')
+const container = document.querySelector('.container'),
+  buttons = container.querySelector('.buttons'),
+  scores = document.querySelector('.scores'),
+  span = buttons.querySelector('span'),
+  h1 = document.querySelector('h1'),
+  total = document.querySelector('#clicked'),
+  red = document.querySelector('#red_clicked'),
+  grey = document.querySelector('#grey_clicked')
 
 //Canvas elements
-const canvas = document.querySelector('canvas')
-const width = canvas.width = window.innerWidth
-const height = canvas.height = window.innerHeight
+const canvas = document.querySelector('canvas'),
+  width = canvas.width = window.innerWidth,
+  height = canvas.height = window.innerHeight
 let ctx = canvas.getContext('2d')
 
 //Variable game elements
@@ -32,8 +32,8 @@ start.style.height = '30px'
 start.style.backgroundColor = 'darkblue'
 start.style.color = 'white'
 buttons.insertBefore(start, span)
-const br = document.createElement('br')
-const br2 = document.createElement('br')
+const br = document.createElement('br'),
+  br2 = document.createElement('br')
 buttons.appendChild(br)
 buttons.appendChild(br2)
 

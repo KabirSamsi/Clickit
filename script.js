@@ -32,6 +32,7 @@ start.style.height = '30px'
 start.style.backgroundColor = 'darkblue'
 start.style.color = 'white'
 buttons.insertBefore(start, span)
+
 const br = document.createElement('br'),
   br2 = document.createElement('br')
 buttons.appendChild(br)
@@ -127,7 +128,9 @@ start.addEventListener('click', () => {
       score.innerHTML = `<br><br>Score: ${new_red} / ${new_total} (${(new_red/new_total)*100}%)`
 
     }
+
     scores.appendChild(score)
+    buttons.removeChild(quit)
 
   })
 })
